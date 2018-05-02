@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Use gh-md-toc to generate a table of contents for a doc, concatenate the
+# output and original doc, save to a file named 'temp'. If there are no errors,
+# rename the output 'temp' to the original doc's name.
+
+gh-md-toc $1 | cat - $1 > temp && mv temp $1 && \
+  printf "\n -- Table of Contents added to $1 --\n\n"
